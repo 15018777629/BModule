@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PolymorphismLayout">
+        <attr name="state" format="enum">
+            <enum name="ERROR" value="0"/>
+            <enum name="EMPTY" value="1"/>
+            <enum name="NET_EXCEPTION" value="2"/>
+            <enum name="LOADING" value="3"/>
+            <enum name="CONTENT" value="4"/>
+        </attr>
+
+        <attr name="error_layout" format="reference"></attr>
+        <attr name="empty_layout" format="reference"></attr>
+        <attr name="net_exception_layout" format="reference"></attr>
+        <attr name="loading_layout" format="reference"></attr>
+        <attr name="content_layout" format="reference"></attr>
+
+        <attr name="in_anim" format="reference"></attr>
+        <attr name="out_anim" format="reference"></attr>
+    </declare-styleable>
+</resources>

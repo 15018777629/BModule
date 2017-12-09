@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.yxr.ui.TitleBar
+        android:id="@+id/baseTitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/whiteFFFFFF"
+        android:elevation="2dp" />
+
+    <com.yxr.ui.polymorphism.PolymorphismLayout
+        android:id="@+id/basePolymorphismLayout"
+        android:layout_below="@+id/baseTitleBar"
+        app:state="CONTENT"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

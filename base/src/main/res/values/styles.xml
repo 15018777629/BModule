@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Customize your theme here. -->
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AnimationActivity" parent="@android:style/Theme.Light.NoTitleBar">
+        <!-- 当我们从 A1 启动 A2 时，A2 出现在屏幕上 -->
+        <item name="android:activityOpenEnterAnimation">@anim/open_enter</item>
+        <!-- 当我们从 A1 启动 A2 时，A1 从屏幕上消失 -->
+        <item name="android:activityOpenExitAnimation">@anim/open_exit</item>
+
+        <!-- 当我们从 A2 退出回到 A1 时，A1 出现在屏幕上 -->
+        <item name="android:activityCloseEnterAnimation">@anim/close_enter</item>
+        <!-- 当我们从 A2 退出回到 A1 时，A2 从屏幕上消失 -->
+        <item name="android:activityCloseExitAnimation">@anim/close_exit</item>
+    </style>
+</resources>
