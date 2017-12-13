@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.yxr.base.R;
 import com.yxr.http.HttpCode;
+import com.yxr.http.HttpHelper;
 import com.yxr.ui.TitleBar;
 import com.yxr.ui.polymorphism.PolymorphismLayout;
 
@@ -23,6 +24,7 @@ import com.yxr.ui.polymorphism.PolymorphismLayout;
 public abstract class BaseActivity extends AppCompatActivity implements BaseUi {
     protected TitleBar titleBar;
     protected PolymorphismLayout polymorphismLayout;
+    protected HttpHelper httpHelper = new HttpHelper();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,6 +55,15 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseUi {
             return null;
         }
         return contentView.findViewById(id);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (httpHelper != null){
+            httpHelper.clearDisposable();
+            httpHelper = null;
+        }
     }
 
     public void setCommonTitle(@NonNull String title) {

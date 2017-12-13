@@ -15,6 +15,7 @@ import java.util.Map;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -24,19 +25,7 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 public class HttpHelper {
-
-    private HttpHelper() {
-
-    }
-
-    public static HttpHelper getInstance() {
-        return InstanceHolder.instance;
-    }
-
-    static class InstanceHolder {
-        final static HttpHelper instance = new HttpHelper();
-    }
-
+    private CompositeDisposable compositeDisposable;
     /**
      * post请求
      *
@@ -185,6 +174,19 @@ public class HttpHelper {
             return;
         }
         callBack.onError(code, errorMsg);
+    }
+
+    private void addDisposable(Disposable disposable) {
+        if (compositeDisposable == null){
+            compositeDisposable = new CompositeDisposable();
+        }
+        compositeDisposable.add(disposable);
+    }
+
+    public void clearDisposable(){
+        if (compositeDisposable != null){
+            compositeDisposable.dispose();
+        }
     }
 
 }
